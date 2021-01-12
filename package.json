@@ -1,6 +1,6 @@
 {
-  "name": "redbird",
-  "version": "0.10.0",
+  "name": "@artcodestudio/redbird",
+  "version": "0.11.0",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/OptimalBits/redbird.git"
+    "url": "git@github.com:ArtCodeStudio/redbird.git"
   },
   "files": [
     "index.js",
@@ -24,9 +24,9 @@
   "author": "Manuel Astudillo",
   "license": "BSD-3-Clause-Attribution",
   "bugs": {
-    "url": "https://github.com/OptimalBits/redbird/issues"
+    "url": "https://github.com/ArtCodeStudio/redbird/issues"
   },
-  "homepage": "https://github.com/OptimalBits/redbird",
+  "homepage": "https://github.com/ArtCodeStudio/redbird",
   "dependencies": {
     "@greenlock/manager": "^3.1.0",
     "acme-http-01-webroot": "^3.0.0",
