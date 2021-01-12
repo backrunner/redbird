@@ -1,6 +1,6 @@
 {
   "name": "@artcodestudio/redbird",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
