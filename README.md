@@ -1,5 +1,9 @@
 # Redbird Reverse Proxy
 
+## About this fork
+
+This is a temporary fork of [redbird](https://github.com/OptimalBits/redbird) until the original works with node 14.
+
 ## With built-in Cluster, HTTP2, [LetsEncrypt](https://letsencrypt.org/) and [Docker](https://www.docker.com/) support
 
 ![redbird](http://cliparts.co/cliparts/6cr/o9d/6cro9dRzi.jpg)
