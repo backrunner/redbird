@@ -13,7 +13,8 @@
   },
   "files": [
     "index.js",
-    "lib"
+    "lib",
+    ".greenlockrc"
   ],
   "keywords": [
     "proxy",
