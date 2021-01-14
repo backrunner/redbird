@@ -7,6 +7,18 @@
         "pino",
         "safetimeout",
         "spdy",
+        "Letsecript",
+        "Optimalbits",
+        "Proxying",
+        "Unbundles",
+        "altnames",
+        "challege",
+        "fullchain",
+        "letscrypt",
+        "letsencrypt",
+        "pems",
+        "privkey",
+        "unbundle",
         "webroot"
     ]
 }
