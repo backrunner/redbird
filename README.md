@@ -4,7 +4,11 @@
 
 This is a fork of [redbird](https://github.com/OptimalBits/redbird) and based on [backrunner's fork](https://github.com/backrunner/redbird).
 
-This version allow you pass a custom logger to the reverse proxy service.
+This version provide these extra features:
+
+1. Custom logger to the reverse proxy service.
+
+2. Set url rewrite in custom resolver.
 
 ## With built-in Cluster, HTTP2, [LetsEncrypt](https://letsencrypt.org/) and [Docker](https://www.docker.com/) support
 
@@ -410,6 +414,22 @@ setTimeout(function() {
   proxy.removeResolver(topPriority);
 }, 600000);
 ```
+
+## URL Rewriting
+
+If you want to set an rewriting by the custom resolve, you can return an object with a property named `rewriteTo`, like the example below:
+
+```js
+const customRewritingResolver = function(host, url, req) {
+  if(/^\/admin\//.test(url)){
+    return {
+      rewriteTo: 'http://127.0.0.1:8080/admin/index.html',
+    };
+  }
+};
+```
+
+This resolver will redirect all the requests to `/admin` to `http://127.0.0.1:8080/admin/index.html`, that will be useful for SPA.
 
 ## Replacing the default HTTP/HTTPS server modules
 
