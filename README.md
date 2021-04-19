@@ -2,7 +2,9 @@
 
 ## About this fork
 
-This is a temporary fork of [redbird](https://github.com/OptimalBits/redbird) until the original works with node 14.
+This is a fork of [redbird](https://github.com/OptimalBits/redbird) and based on [backrunner's fork](https://github.com/backrunner/redbird).
+
+This version allow you pass a custom logger to the reverse proxy service.
 
 ## With built-in Cluster, HTTP2, [LetsEncrypt](https://letsencrypt.org/) and [Docker](https://www.docker.com/) support
 
@@ -47,7 +49,7 @@ TLS protected services that just works.
 ## Install
 
 ```sh
-npm install @artcodestudio/redbird
+npm install @backrunner/redbird
 ```
 
 ## Example
@@ -55,10 +57,10 @@ npm install @artcodestudio/redbird
 You can programmatically register or unregister routes dynamically even if the proxy is already running:
 
 ```js
-var proxy = require('@artcodestudio/redbird')({port: 80});
+var proxy = require('@backrunner/redbird')({port: 80});
 
 // OPTIONAL: Setup your proxy but disable the X-Forwarded-For header
-var proxy = require('@artcodestudio/redbird')({port: 80, xfwd: false});
+var proxy = require('@backrunner/redbird')({port: 80, xfwd: false});
 
 // Route to any global ip
 proxy.register("optimalbits.com", "http://167.23.42.67:8000");
@@ -108,7 +110,7 @@ redbird.register('example.com', 'http://172.60.80.2:8082', {
 //
 // HTTP2 Support using LetsEncrypt for the certificates
 //
-var proxy = require('@artcodestudio/redbird')({
+var proxy = require('@backrunner/redbird')({
   port: 80, // http port is needed for LetsEncrypt challenge during request / renewal. Also enables automatic http->https redirection for registered https routes.
   letsencrypt: {
     path: __dirname + '/certs',
@@ -157,7 +159,7 @@ Note: For production sites you need to buy valid SSL certificates from a trusted
 2. Create a simple redbird based proxy:
 
 ```js
-var redbird = new require('@artcodestudio/redbird')({
+var redbird = new require('@backrunner/redbird')({
   port: 8080,
 
   // Specify filenames to default SSL certificates (in case SNI is not supported by the
@@ -201,7 +203,7 @@ redbird.register('foobar.com', 'http://172.60.80.3:8082', {
 You can also specify https hosts as targets and also specify if you want the connection to the target host to be secure (default is true).
 
 ```js
-var redbird = require('@artcodestudio/redbird')({
+var redbird = require('@backrunner/redbird')({
   port: 80,
   secure: false,
   ssl: {
@@ -222,7 +224,7 @@ redbird.register('tutorial.com', 'https://172.60.80.2:8083', {
 Edge case scenario: you have an HTTPS server with two IP addresses assigned to it and your clients use old software without SNI support. In this case, both IP addresses will receive the same fallback certificate. I.e. some of the domains will get a wrong certificate. To handle this case you can create two HTTPS servers each one bound to its own IP address and serving the appropriate certificate.
 
 ```js
-var redbird = new require('@artcodestudio/redbird')({
+var redbird = new require('@backrunner/redbird')({
   port: 8080,
 
   // Specify filenames to default SSL certificates (in case SNI is not supported by the
@@ -266,11 +268,11 @@ it gets registered, and unregistered if the container is stopped. If you run mor
 container from the same image, Redbird will load balance following a round-robin algorithm:
 
 ```js
-var redbird = require('@artcodestudio/redbird')({
+var redbird = require('@backrunner/redbird')({
   port: 8080,
 });
 
-var docker = require('@artcodestudio/redbird').docker;
+var docker = require('@backrunner/redbird').docker;
 docker(redbird).register("old.api.com", 'company/api:v1.0.0');
 docker(redbird).register("stable.api.com", 'company/api:v2.*');
 docker(redbird).register("preview.api.com", 'company/api:v[3-9].*');
@@ -283,16 +285,16 @@ is accomplished by passing an array of [options](https://github.com/stianeikelan
 which define which etcd cluster hosts, and which directory within those hosts, that Redbird should poll for updates.
 
 ```js
-var redbird = require('@artcodestudio/redbird')({
+var redbird = require('@backrunner/redbird')({
   port:8080
 });
 
 var options = {
   hosts: ['localhost:2379'], // REQUIRED - you must define array of cluster hosts
-  path: ['@artcodestudio/redbird'], // OPTIONAL - path to etcd keys
+  path: ['@backrunner/redbird'], // OPTIONAL - path to etcd keys
   ... // OPTIONAL - pass in node-etcd connection options
 }
-require('@artcodestudio/redbird').etcd(redbird,options);
+require('@backrunner/redbird').etcd(redbird,options);
 ```
 
 etcd records can be created in one of two ways, either as a target destination pair:
@@ -312,7 +314,7 @@ of processes that you want Redbird to use in the options object. Redbird will au
 restart any thread that crashes, increasing reliability.
 
 ```js
-var redbird = new require('@artcodestudio/redbird')({
+var redbird = new require('@backrunner/redbird')({
   port: 8080,
   cluster: 4
 });
@@ -325,7 +327,7 @@ registers a response handler which makes sure the NTLM auth header is properly s
 two entries from http-proxy.
 
 ```js
-var redbird = new require('@artcodestudio/redbird')({
+var redbird = new require('@backrunner/redbird')({
   port: 8080,
   ntlm: true
 });
@@ -370,7 +372,7 @@ var customResolver1 = function(host, url, req) {
 // assign high priority
 customResolver1.priority = 100;
 
-var proxy = new require('@artcodestudio/redbird')({
+var proxy = new require('@backrunner/redbird')({
   port: 8080,
   resolvers: [
   customResolver1,
@@ -442,7 +444,7 @@ var opts = {
 }
 
 // Create the proxy
-var proxy = require('@artcodestudio/redbird')(opts);
+var proxy = require('@backrunner/redbird')(opts);
 ````
 
 ## Roadmap
@@ -484,8 +486,7 @@ __Arguments__
       http2: false, //Optional, setting to true enables http2/spdy support
       serverModule : require('https') // Optional, override the https server module used to listen for https or http2 connections.  Default is require('https') or require('spdy')
     }
-    bunyan: {Object} // Bunyan options. Check [bunyan](https://github.com/trentm/node-bunyan) for info.
-    // If you want to disable bunyan, just set this option to false. Keep in mind that
+    logger: {Object} // Your custom logger, if this is not set, log will be disabled.
     // having logs enabled incours in a performance penalty of about one order of magnitude per request.
     resolvers: {Function | Array} // A list of custom resolvers. Can be a single function or an array of functions. See more details about resolvers above.
     serverModule : {Module} // Optional - Override the http server module used to listen for http connections.  Default is require('http')
