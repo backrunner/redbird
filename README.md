@@ -2,7 +2,7 @@
 
 ## About this fork
 
-This is a fork of [redbird](https://github.com/OptimalBits/redbird) and based on [backrunner's fork](https://github.com/backrunner/redbird).
+This is a fork of [redbird](https://github.com/OptimalBits/redbird) and based on [ArtCodeStudio's fork](https://github.com/ArtCodeStudio/redbird).
 
 This version provide these extra features:
 
