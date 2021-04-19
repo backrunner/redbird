@@ -6,9 +6,9 @@ This is a fork of [redbird](https://github.com/OptimalBits/redbird) and based on
 
 This version provide these extra features:
 
-1. Custom logger to the reverse proxy service.
+1. Support custom logger, and remove the builtin default logger as the same time.
 
-2. Set url rewrite in custom resolver.
+2. Support URL Rewriting based on the custom resolver.
 
 ## With built-in Cluster, HTTP2, [LetsEncrypt](https://letsencrypt.org/) and [Docker](https://www.docker.com/) support
 
