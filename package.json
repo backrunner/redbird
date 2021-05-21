@@ -1,6 +1,6 @@
 {
   "name": "@backrunner/redbird",
-  "version": "0.12.6",
+  "version": "0.12.7-prev.1",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
