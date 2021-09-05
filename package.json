@@ -1,6 +1,6 @@
 {
   "name": "@backrunner/redbird",
-  "version": "0.12.7-prev.3",
+  "version": "0.12.8",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
@@ -41,19 +41,19 @@
     "lodash": "^4.17.21",
     "lru-cache": "^6.0.0",
     "node-etcd": "^7.0.0",
-    "object-hash": "^2.1.1",
+    "object-hash": "^2.2.0",
     "safetimeout": "^0.1.2",
-    "spdy": "^4.0.2",
+    "spdy": "^3.4.7",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
-    "electrode-server": "^2.2.2",
-    "gulp": "^3.8.11",
+    "chai": "^1.10.0",
+    "electrode-server": "^2.5.0",
+    "gulp": "^3.9.1",
     "gulp-eslint": "^0.9.0",
     "mocha": "^2.5.3",
-    "needle": "^2.2.4",
-    "prettier": "^2.0.1",
+    "needle": "^2.9.1",
+    "prettier": "^2.3.2",
     "run-verify": "^1.2.6"
   },
   "prettier": {
