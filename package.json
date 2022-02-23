@@ -1,6 +1,6 @@
 {
   "name": "@backrunner/redbird",
-  "version": "0.12.11",
+  "version": "0.12.12",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,9 @@
   ],
   "author": "Manuel Astudillo",
   "license": "BSD-3-Clause-Attribution",
+  "maintainers": [
+    "BackRunner"
+  ],
   "bugs": {
     "url": "https://github.com/backrunner/redbird/issues"
   },
@@ -39,7 +42,7 @@
     "greenlock-store-fs": "^3.2.2",
     "http-proxy": "^1.18.1",
     "lodash": "^4.17.21",
-    "lru-cache": "^6.0.0",
+    "lru-cache": "^7.4.0",
     "node-etcd": "^7.0.0",
     "object-hash": "^2.2.0",
     "safetimeout": "^0.1.2",
