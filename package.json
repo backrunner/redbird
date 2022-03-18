@@ -1,6 +1,6 @@
 {
   "name": "@backrunner/redbird",
-  "version": "0.12.13",
+  "version": "0.12.14",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,6 @@
   "keywords": [
     "proxy",
     "reverse",
-    "docker",
     "etcd"
   ],
   "author": "Manuel Astudillo",
