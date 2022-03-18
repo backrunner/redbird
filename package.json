@@ -42,7 +42,7 @@
     "greenlock-store-fs": "^3.2.2",
     "http-proxy": "^1.18.1",
     "lodash": "^4.17.21",
-    "lru-cache": "^7.4.0",
+    "lru-cache": "^7.7.1",
     "node-etcd": "^7.0.0",
     "object-hash": "^2.2.0",
     "safetimeout": "^0.1.2",
@@ -56,7 +56,7 @@
     "gulp-eslint": "^0.9.0",
     "mocha": "^2.5.3",
     "needle": "^2.9.1",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "run-verify": "^1.2.6"
   },
   "prettier": {
