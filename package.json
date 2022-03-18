@@ -1,6 +1,6 @@
 {
   "name": "@backrunner/redbird",
-  "version": "0.12.20",
+  "version": "0.13.0",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
     "find-root": "^1.1.0",
     "greenlock-store-fs": "^3.2.2",
     "http-proxy": "^1.18.1",
+    "http2-proxy": "^5.0.53",
     "lodash": "^4.17.21",
     "lru-cache": "^7.7.1",
     "node-etcd": "^7.0.0",
