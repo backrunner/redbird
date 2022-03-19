@@ -10,6 +10,10 @@ This version provide these extra features:
 
 2. Support URL Rewriting based on the custom resolver.
 
+3. Dropped `spdy`, replaced with `http2`.
+
+4. Fix `Let's encrypt` related issues.
+
 ## With built-in Cluster, HTTP2, [LetsEncrypt](https://letsencrypt.org/) and [Docker](https://www.docker.com/) support
 
 ![redbird](http://cliparts.co/cliparts/6cr/o9d/6cro9dRzi.jpg)
