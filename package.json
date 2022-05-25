@@ -1,6 +1,6 @@
 {
   "name": "@backrunner/redbird",
-  "version": "0.14.5",
+  "version": "0.14.6",
   "description": "A reverse proxy with support for dynamic tables",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/backrunner/redbird",
   "dependencies": {
-    "@backrunner/acme-http-01-webroot": "^3.0.0-f1",
+    "acme-http-01-webroot": "npm:@backrunner/acme-http-01-webroot@^3.0.0-f1",
     "@greenlock/manager": "^3.1.0",
     "@root/greenlock": "^4.0.5",
     "bluebird": "^3.7.2",
